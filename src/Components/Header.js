@@ -12,11 +12,11 @@ const Header = () => {
             <div className="h-[0.08em] w-[40%] bg-gray-600 relative left-14 sm:left-0"></div>
 
             <div className="nav w-3/6 bg-gray-900 justify-self-end bg-opacity-60 sm:flex sm:justify-center sm:mx-5 sm:w-20">
-                {/* <div className="p-4 w-2/6 space-y-2 mx-5">
+                <div className="p-4 w-2/6 space-y-2 mx-5 md:hidden">
                     <div className="h-px w-10 bg-gray-100"></div>
                     <div className="h-px w-8 bg-gray-100"></div>
-                </div> */}
-                <ul className='nav-link w-5/6 h-full flex justify-center items-center font-medium space-x-8 pl-5 text-sm'>
+                </div>
+                <ul className='nav-link w-5/6 h-full flex justify-center items-center font-medium space-x-8 pl-5 text-sm sm:hidden'>
                     <NavLink to='/'><li className='flex justify-between border-b-2 border-transparent py-5 hover:text-gray-100'><span className='text-gray-100 pr-1 font-semibold'>00</span>HOME</li></NavLink>
                     <NavLink to='/destination'><li className='flex justify-between border-b-2 border-transparent py-5 hover:text-gray-100'><span className='text-gray-100 pr-1 font-semibold'>01</span>DESTINATION</li></NavLink>
                     <NavLink to='/crew'><li className='flex justify-between border-b-2 border-transparent py-5 hover:text-gray-100'><span className='text-gray-100 pr-1 font-semibold'>02</span>CREW</li></NavLink>

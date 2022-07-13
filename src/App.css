@@ -25,9 +25,3 @@
 .slider{
     height: 100% !important;
 }
-.slide{
-    position:unset !important;
-}
-.slide a{
-    z-index: 99999;
-}

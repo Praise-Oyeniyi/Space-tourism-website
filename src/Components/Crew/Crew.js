@@ -9,7 +9,7 @@ const Crew = () => {
 
 
   return (
-    <div className='crew-outer overflow-hidden h-screen w-full'>
+    <div className='crew-outer overflow-hidden h-screen w-full sm:h-screen'>
       <Header/>    
       <Slider onSlideChange={event => console.log(event.slideIndex)}> 
               {CrewData.map((content, index) => 
