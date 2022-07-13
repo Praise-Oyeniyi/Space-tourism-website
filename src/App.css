@@ -1,38 +1,33 @@
-.App {
-  text-align: center;
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    -webkit-tap-highlight-color: transparent;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.App{
+    background: #333;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.bg-desktop{
+    background-image: url('/src/Components/home/bg-desktop.jpg');
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.active li{
+    border-bottom:2px solid #fff;
 }
-
-.App-link {
-  color: #61dafb;
+.dest-outer{
+    background-image:url('/src/Components/Destination/Images/dest-desk-bg.jpg');
 }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.crew-outer{
+    background-image:url('/src/Components/Crew/Images/crew-d-bg.jpg');
+}
+.tech-d-bg{
+    background-image:url('/src/Components/Technology/Images/bg-desk.jpg');
+}
+.slider{
+    height: 100% !important;
+}
+.slide{
+    position:unset !important;
+}
+.slide a{
+    z-index: 99999;
 }
