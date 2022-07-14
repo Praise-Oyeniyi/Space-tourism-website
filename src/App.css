@@ -13,6 +13,11 @@
 .active li{
     border-bottom:2px solid #fff;
 }
+@media(max-width:519px){
+    .active li{
+        border:2px solid #fff;
+    }
+}
 .dest-outer{
     background-image:url('/src/Components/Destination/Images/dest-desk-bg.jpg');
 }
