@@ -4,16 +4,16 @@ module.exports = {
   theme: {
     extend: {},
     screens: {
-      'sm': {'max': '519px'},
+      'sm': {'max': '530px'},
       // => @media (max-width: 519px) { ... }
 
-      'md': '520px',
+      'md': {'min':'531px', 'max':'750px'},
       // => @media (min-width: 520px) { ... }
 
-      'lg': '720px',
+      'small': {"max":'750px'},
       // => @media (min-width: 720px) { ... }
 
-      'xl': '1280px',
+      'xl': '751px',
       // => @media (min-width: 1280px) { ... }
 
       '2xl': '1536px',
