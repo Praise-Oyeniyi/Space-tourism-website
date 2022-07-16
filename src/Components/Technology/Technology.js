@@ -33,7 +33,8 @@ const Technology = () => {
         <div className="left space-y-16 w-3/6 mt-5 sm:w-full small:space-y-8">
           <h3 className='text-gray-100 text-xl font-semibold uppercase'><span className='text-gray-600 pr-4'>03</span>Space Launch 101</h3>
 
-          <div className="flex justify-between items-center md:justify-start w-full h-auto space-x-5 space-y-3 md:space-y-0 md:space-x-3 sm:flex-col sm:space-y-5">
+          <div className="flex justify-between items-center md:justify-start w-full h-auto xl:space-x-5 space-y-3 md:space-y-0 
+            md:space-x-3 sm:flex-col sm:space-y-5">
             <div className=" flex space-y-5 cursor-pointer flex-col self-start sm:flex-row sm:space-y-0 sm:space-x-5">
               {active.objects.map((e,pos)=>(
                 <div className={styleActive(pos) } onClick={()=>{setActive({...active, activeState: pos}); filterValues(e.filter)}}>
