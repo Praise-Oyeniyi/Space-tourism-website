@@ -2,9 +2,6 @@ import React from 'react'
 import Header from '../Header'
 import {CrewData} from './CrewData'
 import { useState } from 'react';
-// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-// import { solid, regular, brands } from '@fortawesome/fontawesome-svg-core/import.macro'
-
 
 const Crew = () => {
   const [slided, setSlided] = useState(0);
@@ -48,7 +45,7 @@ const Crew = () => {
         <div 
           onTouchStart={handleTouchStart} onTouchMove={handleTouchMove}
           className="crew-body mx-[3%] mt-[3%] flex justify-center space-x-12 items-start h-full 
-          sm:flex-col sm:mt-0 small:mx-[5%] sm:justify-around sm:space-y-5 md:justify-between">
+          sm:flex-col sm:mt-0 small:mx-[5%] sm:justify-start sm:space-y-5 md:justify-between">
 
           <div className="left space-y-16 w-3/6 mt-5 sm:w-full sm:space-y-5 md:w-5/6">
 
@@ -62,10 +59,10 @@ const Crew = () => {
 
 
             <div className="active-slide flex space-x-5 cursor-pointer">
-              <div className="w-4 h-4 rounded-full bg-gray-100"></div>
-              <div className="w-4 h-4 rounded-full bg-gray-500"></div>
-              <div className="w-4 h-4 rounded-full bg-gray-500"></div>
-              <div className="w-4 h-4 rounded-full bg-gray-500"></div>
+            {CrewData.map((e,index)=>
+              (
+                <div key={index} className={`w-3 h-3 rounded-full bg-gray-500 ${slided === index? 'border-gray-100 border-2': 'bg-gray-900'}`}></div>
+              ))}
             </div>
 
           </div>

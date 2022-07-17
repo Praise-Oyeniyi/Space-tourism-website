@@ -16,7 +16,7 @@ const Technology = () => {
     if(pos === active.activeState){
       return "w-14 h-14 md:h-11 md:w-11 rounded-full border-[0.01em] flex items-center justify-center cursor-pointer bg-gray-200 text-gray-900"
     }else{
-      return 'w-14 h-14 md:h-10 md:w-10 rounded-full border-[0.01em] flex items-center justify-center cursor-pointer text-gray-100'
+      return 'w-14 h-14 md:h-10 md:w-10 rounded-full border-[0.01em] flex items-center justify-center cursor-pointer text-gray-100 hover:bg-gray-500'
     }
   }
 
