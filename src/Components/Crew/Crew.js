@@ -24,11 +24,12 @@ const Crew = () => {
     const diff = touchDown - currentTouch
 
     if (diff > 8) {
-      slided === 0? setSlided(CrewData.length -1):setSlided(slided - 1)
+      slided === CrewData.length -1? setSlided(0):setSlided(slided + 1)
+
     }
 
     if (diff < -8) {
-      slided === CrewData.length -1? setSlided(0):setSlided(slided + 1)
+      slided === 0? setSlided(CrewData.length -1):setSlided(slided - 1)
     }
 
     setTouchPosition(null);
