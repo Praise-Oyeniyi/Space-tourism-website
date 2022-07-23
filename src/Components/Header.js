@@ -28,8 +28,8 @@ const Header = ({container, Left, Right}) => {
 
 
             <motion.div 
-                variants={Right}
-                className={`nav w-3/6 md:w-5/6 bg-gray-900 justify-self-end bg-opacity-60 sm:w-full sm:absolute sm:top-0 sm:h-screen sm:z-10 sm:justify-self-auto delay-150 transition-all ${active? 'left-0' : 'left-full' }`} onClick={()=>setActive(!active)}>
+                // variants={Right}
+                className={`nav w-3/6 md:w-5/6 bg-gray-900 justify-self-end bg-opacity-60 sm:w-full sm:absolute sm:top-0 sm:h-screen sm:z-50 sm:justify-self-auto delay-150 transition-all ${active? 'left-0' : 'left-full' }`} onClick={()=>setActive(!active)}>
                     <div className="sm:flex sm:flex-col sm:w-3/6 sm:bg-gray-900 sm:h-full sm:fixed sm:ml-[50%] justify-start items-center">
 
                         <div className={`w-auto place-self-end sm:fixed justify-self-center top-[3%] md:hidden z-50 ${active? '' : 'right-0' }`} onClick={()=>setActive(!active)}>
