@@ -2,8 +2,9 @@ import React from 'react'
 import Header from '../Header'
 import { useState } from 'react'
 import {Dest } from './Dest'
+import { motion } from 'framer-motion'
 
-const Destination = () => {
+const Destination = ({container, Left, Right}) => {
 
   const [arr, filterArr] = useState(Dest);
 
@@ -26,32 +27,38 @@ const Destination = () => {
   }
 
   return (
-    <div className='dest-outer w-full h-screen text-gray-200 sm:overflow-auto small:overflow-x-hidden'>
+    <motion.div variants={container} 
+      initial='initial' animate='animate' 
+      className='dest-outer w-full h-screen text-gray-200 sm:overflow-auto small:overflow-x-hidden xl:overflow-hidden'>
+
       <Header/>
       <div className="dest-body mx-[10%] my-[3%] flex justify-center space-x-12 items-center sm:flex-col md:justify-start md:space-y-4 small:mx-[5%] sm:space-x-0 sm:space-y-5 sm:mt-10">
-        <div className="left space-y-16 w-3/6 sm:w-full sm:space-y-10 md:place-self-start md:mt-[6%]">
-          <h3 className='text-gray-100 text-xl font-semibold md:font-medium md:text-lg'><span className='text-gray-600 pr-4 md:pr-2'>01</span> PICK YOUR DESTINATION</h3>
-          <img src={arr[0].image} alt="" className='w-4/6 md:w-full h-auto text-right sm:text-center'/>
+        <div
+          className="left space-y-16 w-3/6 sm:w-full sm:space-y-10 md:place-self-start md:mt-[6%]">
+          <motion.h3 variants={Left}  className='text-gray-100 text-xl font-semibold md:font-medium md:text-lg'><span className='text-gray-600 pr-4 md:pr-2'>01</span> PICK YOUR DESTINATION</motion.h3>
+          <motion.img variants={Left} src={arr[0].image} alt="current-planet-img" className='w-4/6 md:w-full h-auto text-right sm:text-center'/>
         </div>
 
-        <div className="dest-filter w-2/6 place-self-start sm:w-full md:w-3/6">
-          <ul className='head flex space-x-5 text-base'>
+        <motion.div variants={container} 
+          initial='initial' animate='animate'   
+          className="dest-filter w-2/6 place-self-start sm:w-full md:w-3/6">
+          <motion.ul variants={Left} className='head flex space-x-5 text-base'>
             {planets.objects.map((element, pos)=>(
-                <li className={`${styleActivePlanet(pos)}`} key={pos} onClick={()=>{currentplanets({...planets, activeState: pos}); filterValues(element.planet)}}>{element.planet}</li>
+                <motion.li variants={Left} className={`${styleActivePlanet(pos)}`} key={pos} onClick={()=>{currentplanets({...planets, activeState: pos}); filterValues(element.planet)}}>{element.planet}</motion.li>
             ))}
-          </ul>
+          </motion.ul>
 
 
             
             {
-              <div className="top border-b-[0.05em] space-y-5 pt-5 sm:py-3 pb-8 border-b-gray-600">
+              <motion.div variants={Right} className="top border-b-[0.05em] space-y-5 pt-5 sm:py-3 pb-8 border-b-gray-600">
                 <h2 className='text-8xl text-gray-100 sm:text-5xl md:text-7xl'>{arr[0].planet}</h2>
                 <p className='text-base'>
                   {arr[0].planetDesc}
                 </p>
-              </div>
+              </motion.div>
             }{
-              <div className="bottom w-5/6 flex justify-between items-center py-5 sm:py-3 md:w-full"> 
+              <motion.div variants={Right} className="bottom w-5/6 flex justify-between items-center py-5 sm:py-3 md:w-full"> 
                 <div className='flex flex-col space-y-1'>
                   <h6 className='text-xs sm:text-[0.6rem] -tracking-tighter uppercase font-medium'>
                     Avg. distance
@@ -69,12 +76,12 @@ const Destination = () => {
                     {arr[0].travelTime}
                   </h3>
                 </div>
-              </div>
+              </motion.div>
           }
 
-        </div>
+        </motion.div>
       </div>
-    </div>
+    </motion.div>
   )
 }
 

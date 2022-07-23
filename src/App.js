@@ -1,55 +1,93 @@
 import './App.css';
+import { motion, AnimatePresence } from "framer-motion";
 import Home from './Components/Home';
 import { Routes, Route, useLocation} from 'react-router-dom';
 import Destination from './Components/Destination/Destination'
 import Technology from './Components/Technology/Technology'
 import Crew from './Components/Crew/Crew'
+import { useState } from 'react';
+import {CrewData} from './Components/Crew/CrewData'
+import { computeHeadingLevel } from '@testing-library/react';
 
 function App() {
+  const [loading, setLoading] = useState(true);
+
+  const container = {
+    animate: {
+      transition: {
+        staggerChildren: 0.4,
+      },
+    },
+  }
+
+  const Left = {
+    initial: {x:-100+'vw', opacity:0},
+    animate: {
+        x:0, 
+        opacity:1,
+        transition: {
+            type:'easeinout',
+            ease: [0.6, 0.01, -0.05, 0.95],
+            duration: 0.8,
+      },
+    },
+  };
+
+  const Right = {
+      initial: {x:100+'vw', opacity:0},
+      animate: {
+          x:0, 
+          opacity:1,
+          transition: {
+              type:'ease',
+              ease: [0.6, 0.01, -0.05, 0.95],
+              duration: 0.8,
+        },
+      },
+  };
+
+  //Crew Functions
+  const [slided, setSlided] = useState(0);
+  const [touchPosition, setTouchPosition] = useState(null)
+
+  const handleTouchStart = (e) => {
+    const touchDown = e.touches[0].clientX
+    setTouchPosition(touchDown)
+  }
+    
+  const handleTouchMove = (e) => {
+    const touchDown = touchPosition
+
+    if(touchDown === null) {
+        return ''
+    }
+
+    const currentTouch = e.touches[0].clientX
+    const diff = touchDown - currentTouch
+
+    if (diff > 8) {
+      slided === CrewData.length -1? setSlided(0):setSlided(slided + 1)
+
+    }
+
+    if (diff < -8) {
+      slided === 0? setSlided(CrewData.length -1):setSlided(slided - 1)
+    }
+
+    setTouchPosition(null);
+  }
+
   return (
-    <div className="App">
-      {/* <div className="h-screen w-full bg-gray-700 relative">
-        <div className="h-full w-full flex justify-center items-center relative z-[2]">
-          <div className="w-2/6 h-full bg-gray-100"></div>
-          <div className="w-2/6 h-full bg-gray-100"></div>
-          <div className="w-2/6 h-full bg-gray-100"></div>
-        </div>
-
-        
-        <div className="slant flex absolute top-0 left-0 flex-col w-full h-full">
-
-          <div className="top-slant flex w-full h-full justify-between items center">
-            <div className='w-2/6 bg-red-900 z-[4]'></div>
-            <div className='w-[65%] flex justify-center' >
-              <div className='w-3/6 z-[3] bg-gray-900 border-b-8 '></div>
-              <div className='w-3/6 bg-red-900 z-[4]'></div>
-            </div>
-          </div>
-
-          <div className="top-slant flex w-full h-full justify-between">
-            <div className='w-[65%] flex justify-center' >
-              <div className='w-3/6 z-[3] bg-gray-900 '></div>
-              <div className='w-3/6 bg-red-900 z-[4]'></div>
-            </div>
-            <div className='w-2/6 z-[3] bg-gray-900'></div>
-          </div>
-
-          <div className="top-slant flex w-full h-full justify-between items center">
-            <div className='w-2/6 bg-red-900 z-[4] border-r-8 border-gray-100'></div>
-            <div className='w-[65%] flex justify-center items center' >
-              <div className='w-3/6 z-[3] bg-gray-900 border-t-8'></div>
-              <div className='w-3/6 bg-red-900 z-[4]'></div>
-            </div>
-          </div>
-        </div>
-      </div> */}
-      <Routes>
-        <Route exact path='/' element={<Home/>}/>
-        <Route path='/destination' element={<Destination />}/>
-        <Route path='/crew' element={<Crew/>}/>
-        <Route path='/technology' element={<Technology/>}/>
-      </Routes>
-    </div>
+    <AnimatePresence>
+      <div className="App">
+        <Routes>
+          <Route exact path='/' element={<Home setLoading={setLoading} loading={loading} container={container} Left={Left} Right={Right}/>}/>
+          <Route path='/destination' element={<Destination container={container} Left={Left} Right={Right}/>}/>
+          <Route path='/crew' element={<Crew Left={Left} Right={Right} container={container} handleTouchStart={handleTouchStart} handleTouchMove={handleTouchMove} slided={slided} setSlided={setSlided}/>}/>
+          <Route path='/technology' element={<Technology container={container} Left={Left} Right={Right}/>}/>
+        </Routes>
+      </div>
+    </AnimatePresence>
   );
 }
 
