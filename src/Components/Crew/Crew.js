@@ -7,9 +7,11 @@ const Crew = ({handleTouchMove, handleTouchStart, slided, setSlided, container, 
 
 
   return (
-    <motion.div initial={{y:100+'vh'}} animate={{y:0}} transition={{duration:0.8, type:'ease', ease: [0.6, 0.01, -0.05, 0.95]}}>
+    <motion.div
+      variants={container} initial='initial' animate='animate'
+    >
       <motion.div 
-        variants={container} initial='initial' animate='animate'
+        initial={{y:100+'vh', opacity:0}} animate={{y:0, opacity:1}} transition={{duration:0.8, type:'ease', ease: [0.6, 0.01, -0.05, 0.95]}}
         className='crew-outer overflow-hidden h-screen w-full relative sm:overflow-y-auto'>
 
         <motion.button

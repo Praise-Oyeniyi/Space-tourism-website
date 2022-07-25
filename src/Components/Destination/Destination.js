@@ -27,11 +27,13 @@ const Destination = ({container, Left, Right}) => {
   }
 
   return (
-    <motion.div initial={{y:100+'vh'}} animate={{y:0}} transition={{duration:0.8, type:'ease', ease: [0.6, 0.01, -0.05, 0.95]}}>
-      <motion.div variants={container} 
-        initial='initial' animate='animate' 
+    <motion.div 
+      variants={container} 
+      initial='initial' animate='animate' >
+        
+      <motion.div 
+        initial={{y:100+'vh'}} animate={{y:0}} transition={{duration:0.8, type:'ease', ease: [0.6, 0.01, -0.05, 0.95]}}
         className='dest-outer w-full h-screen text-gray-200 sm:overflow-auto small:overflow-x-hidden xl:overflow-hidden'>
-
         <Header/>
         <div className="dest-body mx-[10%] my-[3%] flex justify-center space-x-12 items-center sm:flex-col md:justify-start md:space-y-4 small:mx-[5%] sm:space-x-0 sm:space-y-5 sm:mt-10">
           <div

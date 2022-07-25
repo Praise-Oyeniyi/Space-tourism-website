@@ -27,8 +27,14 @@ const Technology = ({container, Left, Right}) => {
   }
 
   return (
-    <motion.div initial={{y:100+'vh'}} animate={{y:0}} transition={{duration:0.8, type:'ease', ease: [0.6, 0.01, -0.05, 0.95]}}>
-      <motion.div variants={container} initial='initial' animate='animate' className='tech-d-bg w-full h-screen overflow-x-hidden xl:overflow-hidden'>
+    <motion.div 
+      variants={container} initial='initial' animate='animate'
+      >
+
+      <motion.div  
+        initial={{y:100+'vh'}} animate={{y:0}} transition={{duration:0.8, type:'ease', ease: [0.6, 0.01, -0.05, 0.95]}}
+        className='tech-d-bg w-full h-screen overflow-x-hidden xl:overflow-hidden'>
+
         <Header/>
         <div className="ml-[10%] md:ml-[3%] my-[3%] flex space-x-12 items-start sm:flex-col sm:my-0 sm:mb-0 sm:mx-[5%] sm:space-x-0 sm:mt-5">
 
