@@ -1,5 +1,5 @@
 import './App.css';
-import { motion, AnimatePresence } from "framer-motion";
+import {AnimatePresence } from "framer-motion";
 import Home from './Components/Home';
 import { Routes, Route, useLocation} from 'react-router-dom';
 import Destination from './Components/Destination/Destination'
@@ -7,9 +7,9 @@ import Technology from './Components/Technology/Technology'
 import Crew from './Components/Crew/Crew'
 import { useState } from 'react';
 import {CrewData} from './Components/Crew/CrewData'
-import { computeHeadingLevel } from '@testing-library/react';
 
 function App() {
+  const location = useLocation();
   const [loading, setLoading] = useState(true);
 
   const container = {
@@ -78,9 +78,9 @@ function App() {
   }
 
   return (
-    <AnimatePresence>
+    <AnimatePresence exitBeforeEnter initial={false}>
       <div className="App">
-        <Routes>
+        <Routes location={location} key={location.pathname}>
           <Route exact path='/' element={<Home setLoading={setLoading} loading={loading} container={container} Left={Left} Right={Right}/>}/>
           <Route path='/destination' element={<Destination container={container} Left={Left} Right={Right}/>}/>
           <Route path='/crew' element={<Crew Left={Left} Right={Right} container={container} handleTouchStart={handleTouchStart} handleTouchMove={handleTouchMove} slided={slided} setSlided={setSlided}/>}/>

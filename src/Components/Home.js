@@ -9,11 +9,11 @@ const Home = ({setLoading, loading, container, Left, Right}) => {
 
   return (
   <div>
-    {/* {loading? (
-      <motion.div className='hidden'>
-        <Loader setLoading={setLoading} />
+    {loading? (
+      <motion.div className='bg-opacity-0'>
+        <Loader setLoading={setLoading} container={container} Right={Right} Left={Left}/>
       </motion.div>
-    ): */}
+    ):
     <div 
       className='bg-desktop w-full h-screen flex flex-col justify-between overflow-x-hidden small:justify-start sm:space-y-10'>
         <Header container={container} Left={Left} Right={Right}/>
@@ -43,7 +43,7 @@ const Home = ({setLoading, loading, container, Left, Right}) => {
           </NavLink>
         </motion.div>
     </div>
-    {/* } */}
+    }
   </div>
   )
 }
