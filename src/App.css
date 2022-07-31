@@ -9,8 +9,7 @@
 .App{
     background: #333;
 }
-.bg-desktop{
-    background-image: url('/src/Components/home/bg-desktop.jpg');
+.bg-desktop, .crew-outer, .dest-outer, .tech-d-bg{
     background-repeat: no-repeat;
     background-size: cover;
 }
@@ -21,22 +20,4 @@
     .active li{
         border:2px solid #fff;
     }
-}
-.dest-outer{
-    background-image:url('/src/Components/Destination/Images/dest-desk-bg.jpg');
-    background-repeat: no-repeat;
-    background-size: cover;
-}
-.crew-outer{
-    background-image:url('/src/Components/Crew/Images/crew-d-bg.jpg');
-    background-repeat: no-repeat;
-    background-size: cover;
-}
-.tech-d-bg{
-    background-image:url('/src/Components/Technology/Images/bg-desk.jpg');
-    background-repeat: no-repeat;
-    background-size: cover;
-}
-.slider{
-    height: 100% !important;
 }
