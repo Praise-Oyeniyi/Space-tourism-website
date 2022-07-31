@@ -71,7 +71,7 @@ const Technology = ({container, Left, Right}) => {
           </div>
 
 
-          <motion.div variants={Right} className="h-[30em] small:h-[20em] w-3/6 flex justify-end 
+          <motion.div variants={Right} className="h-[30em] small:h-[15em] w-3/6 flex justify-end 
               small:w-full small:order-1 small:flex-col md:space-y-10 sm:space-y-5">
             <motion.h3 variants={Left} className='text-gray-100 text-xl font-semibold uppercase small:text-base xl:hidden ml-[5%]'><span className='text-gray-600 pr-4'>03</span>Space Launch 101</motion.h3>
             <img src={window.innerWidth>750? arr[0].image : arr[0].imageL } alt="tech" className='object-cover h-5/6 w-[75%] small:w-full place-self-end self-end mb-[7%] sm:mb-0 small:self-center small:place-self-center' />

@@ -64,7 +64,7 @@ const Destination = ({container, Left, Right}) => {
                   </p>
                 </motion.div>
               }{
-                <motion.div variants={Right} className="bottom w-5/6 flex justify-between items-center py-5 sm:py-3 sm:flex-col sm:text-center"> 
+                <motion.div variants={Right} className="bottom w-5/6 flex justify-between items-center py-5 sm:py-3 sm:flex-col sm:text-center sm:space-y-5"> 
                   <div className='flex flex-col space-y-1'>
                     <h6 className='text-xs sm:text-[0.6rem] -tracking-tighter uppercase font-medium'>
                       Avg. distance
